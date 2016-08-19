@@ -48,6 +48,7 @@ class ItemsController extends Controller
         $this->validate($request, [
             'title' => 'required|min:1|max:255',
             'group_id' => 'required',
+            'group_id' => 'exists:groups,id',
         ]);
         
         Item::create($request->all());
