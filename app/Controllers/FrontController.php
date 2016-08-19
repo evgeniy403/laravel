@@ -14,7 +14,18 @@ class FrontController extends Controller
 {
     public function index(Request $request)
     {
-        $limitPagination = 5;
+        $limitPagination = 2;
+
+        if (!empty($request->count_page)) {
+            switch ($request->count_page) {
+                case 5:
+                    $limitPagination = 5;
+                    break;
+                case 10:
+                    $limitPagination = 10;
+                    break;
+            }
+        }
         
         $query = DB::table('items');        
         

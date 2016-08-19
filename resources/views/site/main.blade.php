@@ -16,6 +16,12 @@
         display: inline;
         padding: 5px;
     }
+    .active {
+        color: red;
+    }
+    .item {
+        margin-bottom: 10px;
+    }
     
 </style>
 </head> 
@@ -57,9 +63,15 @@
             @endforeach
         </select>
         <br>
+        <input type="hidden" name="count_page" value="<?php if (isset($_GET['count_page'])) echo $_GET['count_page'];?>" />
         <input type="submit" value="Найти" name="btn"/>
         </form>
-
+        <div>
+            Показывать по:
+            <a href="/?count_page=2" class="<?php if (!isset($_GET['count_page']) || $_GET['count_page'] == 2) echo 'active';?>">2</a>
+            <a href="/?count_page=5" class="<?php if (isset($_GET['count_page']) && $_GET['count_page'] == 5) echo 'active';?>">5</a>
+            <a href="/?count_page=10" class="<?php if (isset($_GET['count_page']) && $_GET['count_page'] == 10) echo 'active';?>">10</a>
+        </div>
      </div>
      @yield('content')
  </div>
