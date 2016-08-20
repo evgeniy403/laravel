@@ -1,7 +1,7 @@
 @extends('site.main')
 @section('content')
 
-<div>
+<div class="section">
     @if (count($items) > 0) 
         @foreach ($items as $item)
             <div class="item">

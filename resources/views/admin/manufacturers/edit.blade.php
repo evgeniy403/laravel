@@ -1,11 +1,20 @@
 @extends('admin.main')
 @section('content')
 <form method="POST" action="{{action('ManufacturersController@update',['manufacturers'=>$manufacturer->id])}}"/>
-Название категории<br>
-<input type="text" name="title" value="{{$manufacturer->title}}"/><br>
-<input type="hidden" name="_method" value="put"/>
-<input type="hidden" name="_token" value="{{csrf_token()}}"/>
-<input type="submit" value="Сохранить">
+    <input type="hidden" name="_method" value="put"/>
+
+    <div class="a_blk">
+        <span>Название категории</span>
+        <br>
+        <input type="text" name="title" value="{{$manufacturer->title}}"/>
+    </div>
+    
+    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+    
+    <div class="a_blk">
+        <input type="submit" value="Сохранить">
+    </div>
+    
 @if(Session::has('message'))
 {{Session::get('message')}}
 @endif

@@ -1,0 +1,8 @@
+.a_blk {
+	padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid black;
+    width: 170px;
+}
+.a.blk input, .a_blk select, .a_blk input[type=submit] {
+	width: 170px;
+}
