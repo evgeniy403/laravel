@@ -15,10 +15,10 @@ class Items extends Migration
         Schema::create('items', function (Blueprint $table) {
         $table->increments('id');
         $table->string('title');
-        $table->integer('group_id')->default(null);
-        $table->integer('manufacturer_id')->default(null);
-        $table->string('weight');
-        $table->string('cost');
+        $table->integer('group_id');
+        $table->integer('manufacturer_id')->nullable();
+        $table->integer('weight')->nullable()->default(NULL);
+        $table->integer('cost')->nullable();
         $table->timestamps();
       });
     }
@@ -30,6 +30,6 @@ class Items extends Migration
      */
     public function down()
     {
-        Schema::drop('tasks');
+        Schema::drop('items');
     }
 }

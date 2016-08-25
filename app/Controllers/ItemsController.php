@@ -49,8 +49,10 @@ class ItemsController extends Controller
             'title' => 'required|min:1|max:255',
             'group_id' => 'required',
             'group_id' => 'exists:groups,id',
+            'cost' => 'integer',
+            'weight' => 'integer',
         ]);
-        
+       
         Item::create($request->all());
         return back()->with('message','Добавлено');
     }

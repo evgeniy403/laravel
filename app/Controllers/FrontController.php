@@ -37,16 +37,16 @@ class FrontController extends Controller
         }        
         
         if (!empty($request->price_min) && ctype_digit($request->price_min)) {
-            $query->where('items.cost', '>', $request->price_min);
+            $query->where('items.cost', '>=', $request->price_min);
         }
         if (!empty($request->price_max) && ctype_digit($request->price_max) && $request->price_max > $request->price_min) {
-            $query->where('items.cost', '<', $request->price_max);
+            $query->where('items.cost', '<=', $request->price_max);
         }
         if (!empty($request->weight_min) && ctype_digit($request->weight_min) && $request->weight_min !== 0) {
-            $query->where('items.weight', '>', $request->weight_min);
+            $query->where('items.weight', '>=', $request->weight_min);
         }
-        if (!empty($request->weight_max) && ctype_digit($request->weight_max) && $request->price_max > $request->price_min) {
-            $query->where('items.weight', '<', $request->price_max);
+        if (!empty($request->weight_max) && ctype_digit($request->weight_max) && $request->weight_max > $request->weight_min) {
+            $query->where('items.weight', '<=', $request->weight_max);
         }
             
         $query->join('groups', 'items.group_id', '=', 'groups.id');

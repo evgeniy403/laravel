@@ -32,16 +32,16 @@
                     </div>
                     <div class="blk">
                         <div class="lab">Стоимость</div>
-                        <input type="text" name="price_min" value="<?php if (isset($_GET['price_min'])) echo $_GET['price_min']; ?>" onkeydown="javascript: return ((event.keyCode>47)&&(event.keyCode<58)) || (event.keyCode == 8) || (event.keyCode == 9)"/> 
+                        <input type="text" name="price_min" value="<?php if (isset($_GET['price_min'])) echo $_GET['price_min']; ?>"/> 
                         до 
-                        <input type="text" name="price_max" value="<?php if (isset($_GET['price_max'])) echo $_GET['price_max']; ?>" onkeydown="javascript: return ((event.keyCode>47)&&(event.keyCode<58)) || (event.keyCode == 8) || (event.keyCode == 9)"/> <br>
+                        <input type="text" name="price_max" value="<?php if (isset($_GET['price_max'])) echo $_GET['price_max']; ?>" /> <br>
                     </div>
                     
                     <div class="blk">
                         <div class="lab">Вес</div>
-                        <input type="text" name="weight_min" value="<?php if (isset($_GET['weight_min'])) echo $_GET['weight_min']; ?>" onkeydown="javascript: return ((event.keyCode>47)&&(event.keyCode<58)) || (event.keyCode == 8) || (event.keyCode == 9)"/> 
+                        <input type="text" name="weight_min" value="<?php if (isset($_GET['weight_min'])) echo $_GET['weight_min']; ?>"/> 
                         до 
-                        <input type="text" name="weight_max" value="<?php if (isset($_GET['weight_max'])) echo $_GET['weight_max']; ?>" onkeydown="javascript: return ((event.keyCode>47)&&(event.keyCode<58)) || (event.keyCode == 8) || (event.keyCode == 9)"/> <br>
+                        <input type="text" name="weight_max" value="<?php if (isset($_GET['weight_max'])) echo $_GET['weight_max']; ?>" /> <br>
                     </div>
                     
                     <div class="blk">
@@ -64,9 +64,9 @@
                 
             <div>
                 Показывать по:
-                <a href="/?count_page=2" class="<?php if (!isset($_GET['count_page']) || $_GET['count_page'] == 2) echo 'active';?>">2</a>
-                <a href="/?count_page=5" class="<?php if (isset($_GET['count_page']) && $_GET['count_page'] == 5) echo 'active';?>">5</a>
-                <a href="/?count_page=10" class="<?php if (isset($_GET['count_page']) && $_GET['count_page'] == 10) echo 'active';?>">10</a>
+                <a href="<?php if (!empty($_GET['count_page'])) { echo preg_replace('/count_page\=(\d+)/', 'count_page=2', $_SERVER['REQUEST_URI']); } else echo '/?count_page=2'; ?>" class="<?php if (empty($_GET['count_page']) || $_GET['count_page'] == 2) echo 'active';?>">2</a>
+                <a href="<?php if (!empty($_GET['count_page'])) { echo preg_replace('/count_page\=(\d+)/', 'count_page=5', $_SERVER['REQUEST_URI']); } else echo '/?count_page=5';?>" class="<?php if (!empty($_GET['count_page']) && $_GET['count_page'] == 5) echo 'active';?>">5</a>
+                <a href="<?php if (!empty($_GET['count_page'])) { echo preg_replace('/count_page\=(\d+)/', 'count_page=10', $_SERVER['REQUEST_URI']); } else echo '/?count_page=10';?>" class="<?php if (!empty($_GET['count_page']) && $_GET['count_page'] == 10) echo 'active';?>">10</a>
             </div>
          </div>
         </div>    
